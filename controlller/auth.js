@@ -17,7 +17,7 @@ exports.signup = async (req, res) => {
 
                         const user = new User({ username, email, password: hashpassword });
                         await user.save();
-                        return res.status(201).json({ success: true, message: 'User created successfully', user });
+                        return res.status(201).json({ success: true, message: 'Signup successfully✌️', user });
             } catch (error) {
                         console.error(error);
                         return res.status(500).json({ error: 'Internal server error' });
@@ -39,7 +39,7 @@ exports.login = async (req, res) => {
                         }
 
                         const token = jwt.sign({ id: user._id }, SECRET_KEY)
-                        res.status(200).json({ success: true, message: 'Login successful', token });
+                        res.status(200).json({ success: true, message: 'Login successful 🤞', token });
             } catch (error) {
                         console.error(error);
                         res.status(500).json({ error: 'Internal server error' });
