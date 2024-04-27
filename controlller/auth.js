@@ -1,5 +1,7 @@
 const User = require("../Schema/schema")
 const bcrypt = require("bcrypt")
+const jwt = require("jsonwebtoken")
+const SECRET_KEY = "NITESH"
 
 
 exports.signup = async (req, res) => {
@@ -24,6 +26,7 @@ exports.signup = async (req, res) => {
 
 
 exports.login = async (req, res) => {
+            console.log("hey")
             try {
                         const { email, password } = req.body;
                         const user = await User.findOne({ email });
@@ -34,7 +37,9 @@ exports.login = async (req, res) => {
                         if (!isMatch) {
                                     return res.status(401).json({ error: 'Invalid email or password' });
                         }
-                        res.status(200).json({ success: true, message: 'Login successful' });
+
+                        const token = jwt.sign({ id: user._id }, SECRET_KEY)
+                        res.status(200).json({ success: true, message: 'Login successful', token });
             } catch (error) {
                         console.error(error);
                         res.status(500).json({ error: 'Internal server error' });
