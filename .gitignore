@@ -1,0 +1,49 @@
+# Node.js dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Log files
+*.log
+
+# Dependency lock files
+package-lock.json
+yarn.lock
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Generated files
+dist/
+build/
+coverage/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Compiled files
+*.min.js
+*.min.css
+
+# Database files
+*.sqlite
+*.db
+
+# Secrets and credentials
+secrets.json
+
+# Backup files
+*.bak
+
+# Miscellaneous
+.DS_Store
+.env.local
